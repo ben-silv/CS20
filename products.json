@@ -1,0 +1,32 @@
+[
+{
+    "Name" : "Blue T-shirt",
+    "Description" : "Blue Lightweight Athletic Shirt",
+    "Price" : "$15",
+    "Categories" : ["clothing", "shirts"]
+},
+{
+    "Name" : "Black Polo Shirt",
+    "Description" : "Classic black formal polo shirt",
+    "Price" : "$35",
+    "Categories" : ["clothing", "shirts"]
+},
+{
+    "Name" : "Tufts Jumbo Hat",
+    "Description" : "Blue hat with Tufts Jumbo logo embossed",
+    "Price" : "$5",
+    "Categories" : ["clothing", "hats"]
+},
+{
+    "Name" : "Wireless Earphones",
+    "Description" : "Apple Airpods Pro",
+    "Price" : "$200",
+    "Categories" : ["technology", "accessories"]
+},
+{
+    "Name" : "Iphone 15 Pro",
+    "Description" : "Apple Iphone 15 Pro from 2023",
+    "Price" : "$999",
+    "Categories" : ["technology", "accessories"]
+}
+]

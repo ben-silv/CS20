@@ -1,10 +1,10 @@
 {
-  "name": "helloapp",
+  "name": "webapp2",
   "version": "1.0.0",
-  "description": "example node app for heroku ",
-  "main": "part1.js",
+  "description": "App for Stock Ticker Assignment Part 2",
+  "main": "webapp2.js",
   "scripts": {
-  "start": "node part1.js"
+  "start": "node webapp2.js"
 },
   "repository": {
   "type": "git",

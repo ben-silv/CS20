@@ -1,4 +1,6 @@
 var http = require('http');
+var url = require('url');
+
 
 // Use Heroku's port or 8080 for local development
 const PORT = process.env.PORT || 3000;
@@ -6,13 +8,15 @@ const PORT = process.env.PORT || 3000;
 http.createServer(function (req, res) {
     console.log("server created")
     res.writeHead(200, {'Content-Type': 'text/html'});
-    theURL = req.url;
+    var parsedUrl = url.parse(req.url, true);
+    var pathname = parsedUrl.pathname;
+    var query = parsedUrl.query;
     
     // Remove localhost references - use relative URLs
     nav = "<a href='/'>Home</a>" + 
         "&nbsp; <a href='/results'>Results</a>"
 
-    if (theURL == "/"){
+    if (pathname == "/"){
         res.write(`
             <!DOCTYPE html>
             <html lang="en">
@@ -22,7 +26,7 @@ http.createServer(function (req, res) {
             </head>
             <body>
                 <h2>Stock Lookup</h2>
-                <form action="/process" method="GET">
+                <form action="/results" method="GET">
                     <label for="stockInput">Enter Stock Ticker or Company Name:</label><br>
                     <input type="text" id="stockInput" name="stockInput" required><br><br>
                     
@@ -38,10 +42,26 @@ http.createServer(function (req, res) {
             </html>
         `);
     }
-    else if (theURL == "/results") {
-        res.write(nav)
-        res.write("<h1>Results</h1>");
-        res.write('<br> This is the results page!');
+    else if (pathname == "/results") {
+        var stockInput = query.stockInput || "Not provided";
+        var searchType = query.searchType || "Not selected";
+        
+        res.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Process Results</title>
+            </head>
+            <body>
+                <h2>Search Results</h2>
+                <p><strong>Input:</strong> ${stockInput}</p>
+                <p><strong>Search Type:</strong> ${searchType}</p>
+                <br>
+                <a href="/">Back to Form</a>
+            </body>
+            </html>
+        `);
     }
     res.end();
 }).listen(PORT, () => {

@@ -72,7 +72,7 @@ http.createServer(function (req, res) {
             
         } else if (searchType === "company") {
             // Case-insensitive partial match on companyName field
-            searchQuery = { companyName: stockInput.toLowerCase() };
+            searchQuery = { companyName: stockInput};
         }
         
         // iii) Find matching data in MongoDB database
@@ -104,8 +104,6 @@ http.createServer(function (req, res) {
                         <h2>Search Results</h2>
                         <p><strong>Input:</strong> ${stockInput}</p>
                         <p><strong>Search Type:</strong> ${searchType}</p>
-                        <p><strong>Check your console for detailed output!</strong></p>
-                        <br>
                 `);
                 
                 if (results.length > 0) {

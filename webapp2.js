@@ -13,7 +13,6 @@ http.createServer(function (req, res) {
         "&nbsp; <a href='/results'>Results</a>"
 
     if (theURL == "/"){
-        res.write(nav)
         res.write(`
             <!DOCTYPE html>
             <html lang="en">
@@ -30,10 +29,8 @@ http.createServer(function (req, res) {
                         background-color: #f5f5f5;
                     }
                     .form-container {
-                        background-color: white;
                         padding: 30px;
                         border-radius: 8px;
-                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                     }
                     h2 {
                         margin-top: 0;
@@ -110,11 +107,11 @@ http.createServer(function (req, res) {
                             <div class="radio-group">
                                 <div class="radio-option">
                                     <input type="radio" id="ticker" name="searchType" value="ticker" checked>
-                                    <label for="ticker" style="margin-bottom: 0; font-weight: normal;">Ticker Symbol (e.g., AAPL, TSLA)</label>
+                                    <label for="ticker" style="margin-bottom: 0; font-weight: normal;">Ticker Symbol</label>
                                 </div>
                                 <div class="radio-option">
                                     <input type="radio" id="company" name="searchType" value="company">
-                                    <label for="company" style="margin-bottom: 0; font-weight: normal;">Company Name (e.g., Apple Inc.)</label>
+                                    <label for="company" style="margin-bottom: 0; font-weight: normal;">Company Name</label>
                                 </div>
                             </div>
                         </div>

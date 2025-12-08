@@ -80,7 +80,6 @@ http.createServer(function (req, res) {
                 //display the results in console
                 if (results.length > 0) {
                     results.forEach((stock, index) => {
-                        console.log(`Result ${index + 1}:`);
                         console.log(`Name: ${stock.companyName}`);
                         console.log(`Stock Ticker: ${stock.stockTicker}`);
                         console.log(`Stock Price: $${stock.stockPrice}`);
